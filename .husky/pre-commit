@@ -1,1 +1,2 @@
-
+# Run linters on staged files
+npx lint-staged

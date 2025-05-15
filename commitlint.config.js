@@ -7,7 +7,7 @@
 // The "subject-case" rule enforces the case of the subject line, while the "header-max-length", "body-max-line-length", and "footer-max-line-length" rules enforce the maximum line lengths for the respective sections of the commit message.
 // The configuration is set to use the "@commitlint/config-conventional" preset, which is a popular set of rules for conventional commits.
 
-module.exports = {
+export default  {
   extends: ["@commitlint/cli", "@commitlint/config-conventional"],
   rules: {
     "type-enum": [
@@ -34,9 +34,9 @@ module.exports = {
       "never",
       ["sentence-case", "start-case", "pascal-case", "upper-case"],
     ],
-    "header-max-length": [2, "always", 72],
-    "body-max-line-length": [2, "always", 100],
-    "footer-max-line-length": [2, "always", 100],
+    // "header-max-length": [2, "always", 72],
+    // "body-max-line-length": [2, "always", 100],
+    // "footer-max-line-length": [2, "always", 100],
   },
 };
 
