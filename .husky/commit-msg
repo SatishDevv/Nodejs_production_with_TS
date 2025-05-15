@@ -1,0 +1,3 @@
+# This file is used by Husky to lint commit messages before they are committed.
+
+npx --no-install commitlint --edit "$1"
