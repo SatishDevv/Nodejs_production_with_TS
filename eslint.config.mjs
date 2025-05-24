@@ -1,24 +1,26 @@
-// eslint.config.mjs
-import tsParser from '@typescript-eslint/parser';
-import tsPlugin from '@typescript-eslint/eslint-plugin';
+import eslint from '@eslint/js';
+import tseslint from 'typescript-eslint';
 
 export default [
   {
     files: ['**/*.ts'],
+    ignores: ['**/build/**', '**/dist/**','**/*.config.js', '**/*.config.mjs', '**/*.cjs'],
     languageOptions: {
-      parser: tsParser,
+      parser: tseslint.parser,
       parserOptions: {
-        project: './tsconfig.json',
-        tsconfigRootDir: import.meta.dirname, // (ESM alternative to __dirname)
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+        allowDefaultProject: true,
       },
     },
     plugins: {
-      '@typescript-eslint': tsPlugin,
+      '@typescript-eslint': tseslint.plugin,
     },
     rules: {
+      ...eslint.configs.recommended.rules,
+      ...tseslint.configs.recommendedTypeChecked[0].rules,
       'no-console': 'error',
       'quotes': ['error', 'single', { allowTemplateLiterals: true }],
-      ...tsPlugin.configs.recommended.rules,
     },
   },
 ];

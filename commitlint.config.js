@@ -1,5 +1,3 @@
-
-
 // This configuration file is for commitlint, which is a tool that checks if your commit messages meet the conventional commit format.
 // The configuration specifies the rules for commit messages, including the types of commits allowed, the case of the subject line, and the maximum line lengths for the header, body, and footer.
 // The rules are defined in the "rules" object, where each rule has a severity level (2 for error, 1 for warning, 0 for off) and additional options.
