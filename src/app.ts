@@ -5,14 +5,13 @@ import globalErrorHandler from './utils/globalErrorHandler';
 import httpError from './utils/httpError';
 import responseMessage from './constant/responseMessage';
 import helmet from 'helmet';
+import corsConfig from './utils/corsConfig';
 
 const app: Application = express();
 
-// Middleware to set security headers
-app.use(helmet());
-// Middleware to parse JSON bodies
-app.use(express.json());
-
+app.use(helmet()); // Middleware to set security-related HTTP headers
+app.use(corsConfig()); // Middleware to enable CORS with custom configuration
+app.use(express.json()); // Middleware to parse JSON request bodies
 // eslint-disable-next-line no-undef
 app.use(express.static(path.join(__dirname, '../', 'public'))); //server static files from the 'public' directory
 
