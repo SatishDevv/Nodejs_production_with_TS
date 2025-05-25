@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: docker/development/Dockerfile
+    container_name: node-dev
+    ports:
+      - '5000:5000'
+    volumes:
+      - .:/usr/src/backend-app
+      - /usr/src/backend-app/node_modules  # avoid overwriting node_modules
+    command: npm run dev
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=mongodb://mongo:27017/production
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:7
+    container_name: mongo-dev
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
