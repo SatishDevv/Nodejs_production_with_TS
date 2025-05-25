@@ -4,9 +4,12 @@ import rootRouter from './router/rootRoutes';
 import globalErrorHandler from './utils/globalErrorHandler';
 import httpError from './utils/httpError';
 import responseMessage from './constant/responseMessage';
+import helmet from 'helmet';
 
 const app: Application = express();
 
+// Middleware to set security headers
+app.use(helmet());
 // Middleware to parse JSON bodies
 app.use(express.json());
 
