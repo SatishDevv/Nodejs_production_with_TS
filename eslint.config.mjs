@@ -23,8 +23,10 @@ export default [
             ...eslint.configs.recommended.rules,
             ...tseslint.configs.recommendedTypeChecked[0].rules,
             'no-console': 'error',
+            'no-useless-catch': 0,
             quotes: ['error', 'single', { allowTemplateLiterals: true }]
         }
     },
     prettierConfig
 ];
+
