@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { THttpResponse } from '../types/types';
 import config from '../config/config';
 import { EApplicationEnvironment } from '../constant/application';
+import logger from './logger';
 
 export default (
     req: Request,
@@ -22,7 +23,7 @@ export default (
         data: data
     };
     // Logging the response for debugging purposes
-    // console.info(`CONTROLLER RESPONSE`, { meta: response });
+    logger.info(`CONTROLLER RESPONSE`, { meta: response });
 
     // Delete the ip from the response if the environment is production
 
