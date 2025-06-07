@@ -1,20 +1,21 @@
 version: '3.8'
 
 services:
-  backend:
+  api:
+    container_name: node-api
     build:
       context: .
       dockerfile: docker/development/Dockerfile
-    container_name: node-dev
     ports:
       - '5000:5000'
     volumes:
-      - .:/usr/src/backend-app
-      - /usr/src/backend-app/node_modules  # avoid overwriting node_modules
-    command: npm run dev
+      - .:/app
+      - /app/node_modules
     environment:
       - NODE_ENV=development
       - DATABASE_URL=mongodb://mongo:27017/production
+    command: npm run dev
+    restart: unless-stopped
     depends_on:
       - mongo
 
