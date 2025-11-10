@@ -43,8 +43,8 @@ Commitlint enforces rules for commit messages, helping maintain a consistent com
 - **`2`** = error level
 - **`'never'`** = these cases are **not allowed**
 - Disallowed cases:
-  - `sentence-case` (e.g., "Add new feature")
-  - `start-case` (e.g., "Add New Feature")
-  - `pascal-case` (e.g., "AddNewFeature")
-  - `upper-case` (e.g., "ADD NEW FEATURE")
+    - `sentence-case` (e.g., "Add new feature")
+    - `start-case` (e.g., "Add New Feature")
+    - `pascal-case` (e.g., "AddNewFeature")
+    - `upper-case` (e.g., "ADD NEW FEATURE")
 - So, it **expects lowercase** (e.g., `fix: handle null pointer`).
