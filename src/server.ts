@@ -1,5 +1,6 @@
 import app from './app';
 import config from './config/config';
+import { seedInitialUsers } from './seeder/seedInitialUsers';
 import dataBaseService from './services/dataBaseService';
 import logger from './utils/logger';
 
@@ -15,6 +16,10 @@ const server = app.listen(config.PORT);
                 name: connection.name
             }
         });
+
+        seedInitialUsers()
+            .then((res) => logger.info('SEED_COMPLETE', { meta: res }))
+            .catch((err) => logger.error('SEED_FAILED', { meta: err.message }));
 
         logger.info('APPLICATION_RUNNING_ON ', {
             meta: {
@@ -32,4 +37,3 @@ const server = app.listen(config.PORT);
         process.exit(1); // Exit the process with a failure code
     }
 })();
-

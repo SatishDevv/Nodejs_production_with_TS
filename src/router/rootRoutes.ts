@@ -1,10 +1,10 @@
 import { Router } from 'express';
-import apiRouter from './apiRouter';
+import authRouter from './authRouter';
 import healthRouter from './healthRouter';
 
 const rootRouter = Router();
 
-rootRouter.use('/test', apiRouter);
+rootRouter.use('/auth', authRouter);
 rootRouter.use('/health', healthRouter);
 
 export default rootRouter;

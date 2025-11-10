@@ -3,7 +3,7 @@ import errorObject from './errorObject';
 
 export default (
     nextFunc: NextFunction,
-    err: Error | undefined | null | unknown,
+    err: Error | string  |undefined | null | unknown,
     req: Request,
     errorStatusCode: number = 500
 ): void => {
