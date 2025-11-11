@@ -3,11 +3,10 @@ import errorObject from './errorObject';
 
 export default (
     nextFunc: NextFunction,
-    err: Error | string  |undefined | null | unknown,
+    err: Error | string | undefined | null | unknown,
     req: Request,
     errorStatusCode: number = 500
 ): void => {
     const errorObj = errorObject(err, req, errorStatusCode);
     return nextFunc(errorObj);
 };
-

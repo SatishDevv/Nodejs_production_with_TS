@@ -23,4 +23,3 @@ export const configureCors = () => {
         optionsSuccessStatus: 204
     });
 };
-

@@ -6,4 +6,3 @@ const apiRouter = Router();
 apiRouter.get('/', apiController.test);
 
 export default apiRouter;
-

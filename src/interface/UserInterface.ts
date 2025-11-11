@@ -7,8 +7,8 @@ export interface IUser extends Document {
     tubeLightUserName?: string;
     tubeLightPassword?: string;
     tubeLightValidityTime?: string;
-    tubeLightName?:string;
+    tubeLightName?: string;
     tubeLightEmail?: string;
-     // eslint-disable-next-line no-unused-vars
-     comparePassword(password: string): Promise<boolean>;
+    // eslint-disable-next-line no-unused-vars
+    comparePassword(password: string): Promise<boolean>;
 }

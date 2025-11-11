@@ -9,4 +9,3 @@ const apiRouter = Router();
 apiRouter.post('/', validateRequest(loginSchema, BODY), authController.login);
 
 export default apiRouter;
-

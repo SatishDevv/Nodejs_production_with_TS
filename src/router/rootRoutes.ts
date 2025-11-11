@@ -8,4 +8,3 @@ rootRouter.use('/auth', authRouter);
 rootRouter.use('/health', healthRouter);
 
 export default rootRouter;
-

@@ -1,55 +1,55 @@
 version: '3.8'
 
 services:
-  api:
-    container_name: node-api
-    build:
-      context: .
-      dockerfile: docker/development/Dockerfile
-    ports:
-      - '5000:5000'
-    volumes:
-      - .:/app
-      - /app/node_modules
-    environment:
-      - NODE_ENV=development
-    command: npm run dev
-    restart: unless-stopped
-    depends_on:
-      - mongo
-    networks:
-      - dev-network
+    api:
+        container_name: node-api
+        build:
+            context: .
+            dockerfile: docker/development/Dockerfile
+        ports:
+            - '5000:5000'
+        volumes:
+            - .:/app
+            - /app/node_modules
+        environment:
+            - NODE_ENV=development
+        command: npm run dev
+        restart: unless-stopped
+        depends_on:
+            - mongo
+        networks:
+            - dev-network
 
-  mongo:
-    image: mongo:7
-    container_name: mongo-dev
-    ports:
-      - "27017:27017"
-    volumes:
-      - mongo_data:/data/db
-    networks:
-      - dev-network
+    mongo:
+        image: mongo:7
+        container_name: mongo-dev
+        ports:
+            - '27017:27017'
+        volumes:
+            - mongo_data:/data/db
+        networks:
+            - dev-network
 
-  mongo-express:
-    image: mongo-express
-    container_name: mongo-express-dev
-    ports:
-      - "8081:8081"
-    environment:
-      - ME_CONFIG_MONGODB_SERVER=mongo
-      - ME_CONFIG_MONGODB_PORT=27017
-      - ME_CONFIG_MONGODB_AUTH_DATABASE=admin
-      - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
-      - ME_CONFIG_BASICAUTH_USERNAME=admin
-      - ME_CONFIG_BASICAUTH_PASSWORD=admin123
-    depends_on:
-      - mongo
-    networks:
-      - dev-network
+    mongo-express:
+        image: mongo-express
+        container_name: mongo-express-dev
+        ports:
+            - '8081:8081'
+        environment:
+            - ME_CONFIG_MONGODB_SERVER=mongo
+            - ME_CONFIG_MONGODB_PORT=27017
+            - ME_CONFIG_MONGODB_AUTH_DATABASE=admin
+            - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
+            - ME_CONFIG_BASICAUTH_USERNAME=admin
+            - ME_CONFIG_BASICAUTH_PASSWORD=admin123
+        depends_on:
+            - mongo
+        networks:
+            - dev-network
 
 volumes:
-  mongo_data:
+    mongo_data:
 
 networks:
-  dev-network:
-    driver: bridge
+    dev-network:
+        driver: bridge

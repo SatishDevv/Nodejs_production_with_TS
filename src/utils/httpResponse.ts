@@ -33,4 +33,3 @@ export default (
 
     res.status(responseStatusCode).json(response);
 };
-
